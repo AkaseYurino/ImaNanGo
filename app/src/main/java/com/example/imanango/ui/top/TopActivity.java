@@ -1,6 +1,9 @@
 package com.example.imanango.ui.top;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +12,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.imanango.R;
+import com.example.imanango.data.RiceMode;
+import com.example.imanango.ui.count.CountActivity;
+import com.example.imanango.ui.result.ResultActivity;
 
 public class TopActivity extends AppCompatActivity {
+
+    private FrameLayout startButtonNormal;
+    private FrameLayout startButtonMusenmai;
+    private FrameLayout startButtonGenmai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +32,34 @@ public class TopActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        RiceMode riceMode;
+
+        //ふつうのお米モード
+        startButtonNormal = findViewById(R.id.start_button_normal);
+        //ボタンが押されたときの処理
+        startButtonNormal.setOnClickListener(view -> {
+            Intent intent = CountActivity.newIntent(TopActivity.this, Normal);
+            startActivity(intent);
+        });
+
+        //無洗米モード
+        startButtonMusenmai = findViewById(R.id.start_button_musenmai);
+        //ボタンが押されたときの処理
+        startButtonMusenmai.setOnClickListener(view -> {
+            return RiceMode.NORMAL;
+            Intent intent = CountActivity.newIntent(TopActivity.this, riceMode);
+            startActivity(intent);
+        });
+
+        //玄米モード
+        startButtonGenmai = findViewById(R.id.start_button_gennmai);
+        //ボタンが押されたときの処理
+        startButtonGenmai.setOnClickListener(view -> {
+            Intent intent = CountActivity.newIntent(TopActivity.this, riceMode);
+            startActivity(intent);
+        });
+
+
     }
 }

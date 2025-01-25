@@ -1,5 +1,7 @@
 package com.example.imanango.ui.count;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +13,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.imanango.R;
 
 public class CountActivity extends AppCompatActivity {
+
+    //TODO キーの設定
+
+    public static Intent newIntent(Context context, int riceModeId) {
+        Intent intent = new Intent(context, CountActivity.class);
+        intent.putExtra("", riceModeId);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
