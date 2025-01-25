@@ -73,6 +73,5 @@ public class TopActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
     }
 }

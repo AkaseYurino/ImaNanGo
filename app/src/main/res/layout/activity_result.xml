@@ -20,6 +20,7 @@
         android:layout_marginTop="16dp">
 
         <TextView
+            android:id="@+id/total_rice_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="合計%d合デェス!!"
@@ -35,12 +36,26 @@
         android:layout_marginTop="94dp">
 
         <TextView
+            android:id="@+id/last_rice_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%f合炊くのに"
+            android:textSize="40sp"
+            android:layout_gravity="center_horizontal|top" />
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="必要な水の量は"
+            android:textSize="40sp"
+            android:layout_gravity="center" />
+        <TextView
             android:id="@+id/water_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="%d合炊くのに\n 必要な水の量は\n　%dmlデス!!"
+            android:text="%dmlデス!!"
             android:textSize="40sp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center_horizontal|bottom" />
     </FrameLayout>
     
     <ImageView

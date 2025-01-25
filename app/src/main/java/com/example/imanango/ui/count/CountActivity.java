@@ -71,7 +71,7 @@ public class CountActivity extends AppCompatActivity {
 
         //riceCountの表示
         riceCountView = findViewById(R.id.rice_count);
-        riceCountView.setText(String.valueOf(count));
+        riceCountView.setText(getGoText(count));
 
         //btn1を押したときの処理
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +79,8 @@ public class CountActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //カウントアップ処理
                 count += 1;
+                //テキストに表示する処理
+                riceCountView.setText(getGoText(count));
             }
         });
 
@@ -88,6 +90,8 @@ public class CountActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //0.5ずつのカウントアップ処理
                 count += 0.5;
+                //テキストに表示する処理
+                riceCountView.setText(getGoText(count));
             }
         });
 
@@ -96,8 +100,13 @@ public class CountActivity extends AppCompatActivity {
         //ボタンが押されたときの処理
         getTotal.setOnClickListener(view -> {
 
-            Intent intent = ResultActivity.newIntent(CountActivity.this, riceModeID);
+            Intent intent = ResultActivity.newIntent(CountActivity.this, riceModeID, count);
             startActivity(intent);
         });
+
+    }
+
+    private String getGoText(float count) {
+        return count + "GO!!";
     }
 }
