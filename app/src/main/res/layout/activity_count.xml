@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +7,100 @@
     android:layout_height="match_parent"
     tools:context=".ui.count.CountActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/rice_pattern_orange"
+        android:scaleType="centerCrop"
+        />
+    
+    <FrameLayout
+        android:layout_width="362dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="13dp" >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="%dモード"
+            android:textSize="24sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="362dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="72dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="%dGO!!"
+            android:textSize="48dp" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/cooking_keiryou_cup"
+        android:layout_marginTop="150dp"/>
+
+    <FrameLayout
+        android:layout_width="286dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="450dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1GO!!"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="286dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="532dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.5GO!!"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/get_total"
+        android:layout_width="286dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="624dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今なんGO!?"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+    </FrameLayout>
+
+
+</FrameLayout>

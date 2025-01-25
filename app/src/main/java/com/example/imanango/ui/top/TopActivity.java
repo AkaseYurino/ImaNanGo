@@ -1,5 +1,9 @@
 package com.example.imanango.ui.top;
 
+import static com.example.imanango.data.RiceMode.GENMAI;
+import static com.example.imanango.data.RiceMode.MUSENMAI;
+import static com.example.imanango.data.RiceMode.NORMAL;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +25,7 @@ public class TopActivity extends AppCompatActivity {
     private FrameLayout startButtonNormal;
     private FrameLayout startButtonMusenmai;
     private FrameLayout startButtonGenmai;
+    private int riceModeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +38,12 @@ public class TopActivity extends AppCompatActivity {
             return insets;
         });
 
-        RiceMode riceMode;
-
         //ふつうのお米モード
         startButtonNormal = findViewById(R.id.start_button_normal);
         //ボタンが押されたときの処理
         startButtonNormal.setOnClickListener(view -> {
-            Intent intent = CountActivity.newIntent(TopActivity.this, Normal);
+            riceModeId = NORMAL.getId();
+            Intent intent = CountActivity.newIntent(TopActivity.this, riceModeId);
             startActivity(intent);
         });
 
@@ -47,8 +51,8 @@ public class TopActivity extends AppCompatActivity {
         startButtonMusenmai = findViewById(R.id.start_button_musenmai);
         //ボタンが押されたときの処理
         startButtonMusenmai.setOnClickListener(view -> {
-            return RiceMode.NORMAL;
-            Intent intent = CountActivity.newIntent(TopActivity.this, riceMode);
+            riceModeId = MUSENMAI.getId();
+            Intent intent = CountActivity.newIntent(TopActivity.this, riceModeId);
             startActivity(intent);
         });
 
@@ -56,7 +60,8 @@ public class TopActivity extends AppCompatActivity {
         startButtonGenmai = findViewById(R.id.start_button_gennmai);
         //ボタンが押されたときの処理
         startButtonGenmai.setOnClickListener(view -> {
-            Intent intent = CountActivity.newIntent(TopActivity.this, riceMode);
+            riceModeId = GENMAI.getId();
+            Intent intent = CountActivity.newIntent(TopActivity.this, riceModeId);
             startActivity(intent);
         });
 

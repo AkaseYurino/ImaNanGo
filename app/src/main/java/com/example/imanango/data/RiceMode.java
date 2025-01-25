@@ -12,6 +12,10 @@ public enum RiceMode {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public RiceMode toRiceMode(int id) {
 
         switch (id) {
