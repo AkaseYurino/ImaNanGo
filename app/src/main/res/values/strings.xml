@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ImaNanGo</string>
+    <string name="rice_mode_name">%1$sモード</string>
+    <string name="normal">ふつうのお米</string>
+    <string name="musenmai">無洗米</string>
+    <string name="genmai">玄米</string>
 </resources>
