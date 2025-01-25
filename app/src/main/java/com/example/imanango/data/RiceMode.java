@@ -6,7 +6,7 @@ import com.example.imanango.R;
  * ライスモード
  */
 public enum RiceMode {
-    NORMAL(1, R.string.rice_mode_name), MUSENMAI(2), GENMAI(3);
+    NORMAL(1, R.string.normal), MUSENMAI(2, R.string.musenmai), GENMAI(3, R.string.genmai);
 
     private int id;
     private int titleResId;
@@ -24,7 +24,7 @@ public enum RiceMode {
         return titleResId;
     }
 
-    public RiceMode toRiceMode(int id) {
+    public static RiceMode toRiceMode(int id) {
 
         switch (id) {
             case 1:

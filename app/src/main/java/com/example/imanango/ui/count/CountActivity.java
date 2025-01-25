@@ -1,5 +1,6 @@
 package com.example.imanango.ui.count;
 
+import static com.example.imanango.data.RiceMode.GENMAI;
 import static com.example.imanango.data.RiceMode.MUSENMAI;
 
 import android.content.Context;
@@ -16,11 +17,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.imanango.R;
+import com.example.imanango.data.RiceMode;
+import com.example.imanango.ui.result.ResultActivity;
 import com.example.imanango.ui.top.TopActivity;
 
 public class CountActivity extends AppCompatActivity {
 
     //キーの設定
+    //RICE_MODE_IDをキーにして値を受け取っている
     private static final String RICE_MODE_ID = "rice_mode_id";
 
     public static Intent newIntent(Context context, int riceModeId) {
@@ -34,6 +38,8 @@ public class CountActivity extends AppCompatActivity {
     private FrameLayout btn1;
     private FrameLayout btn2;
     private FrameLayout getTotal;
+    private float count = 0;
+    private TextView riceCountView;
 
 
     @Override
@@ -47,18 +53,51 @@ public class CountActivity extends AppCompatActivity {
             return insets;
         });
 
+        //前の画面から受け取った値を取得
         riceModeID =getIntent().getIntExtra(RICE_MODE_ID, -1);
-
+        //IDを元にRiceModeを取得
+        RiceMode selectRiceMode = RiceMode.toRiceMode(riceModeID);
+        //Idを取得して、ストリング型タイトルに変換している
+        String title = getString(selectRiceMode.getTitleResId());
+        //RiceModeの名前を表示するテキストビューを取得
         riceModeTextView = findViewById(R.id.rice_mode_text);
-        riceModeTextView.setText(getString(R.string.rice_mode_name, riceModeID));
+        //RicceModeの名前をテキストビューにセットする
+        riceModeTextView.setText(getString(R.string.rice_mode_name, title));
 
         //レイアウトのIDと紐づける
         btn1 = findViewById(R.id.button1);
         btn2 = findViewById(R.id.button2);
         getTotal = findViewById(R.id.get_total);
 
-        //今なんGO!?ボタンを押したときの処理
+        //riceCountの表示
+        riceCountView = findViewById(R.id.rice_count);
+        riceCountView.setText(String.valueOf(count));
 
+        //btn1を押したときの処理
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //カウントアップ処理
+                count += 1;
+            }
+        });
 
+        //btn2を押したときの処理
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //0.5ずつのカウントアップ処理
+                count += 0.5;
+            }
+        });
+
+        //getTotalを押したときの処理(今なんGO!?ボタンを押したときの処理)
+        getTotal = findViewById(R.id.get_total);
+        //ボタンが押されたときの処理
+        getTotal.setOnClickListener(view -> {
+
+            Intent intent = ResultActivity.newIntent(CountActivity.this, riceModeID);
+            startActivity(intent);
+        });
     }
 }

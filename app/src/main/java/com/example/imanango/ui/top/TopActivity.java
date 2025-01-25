@@ -4,6 +4,7 @@ import static com.example.imanango.data.RiceMode.GENMAI;
 import static com.example.imanango.data.RiceMode.MUSENMAI;
 import static com.example.imanango.data.RiceMode.NORMAL;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,13 @@ public class TopActivity extends AppCompatActivity {
     private FrameLayout startButtonMusenmai;
     private FrameLayout startButtonGenmai;
     private int riceModeId;
+
+    //ClearActivityから戻ってくる処理
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context,TopActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent ;
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

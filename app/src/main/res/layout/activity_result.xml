@@ -32,12 +32,13 @@
         android:layout_height="166dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_shape"
-        android:layout_marginTop="89dp">
+        android:layout_marginTop="94dp">
 
         <TextView
+            android:id="@+id/water_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="%d合炊くのに/n 必要な水の量は/n　%dmlデス!!"
+            android:text="%d合炊くのに\n 必要な水の量は\n　%dmlデス!!"
             android:textSize="40sp"
             android:layout_gravity="center" />
     </FrameLayout>
@@ -49,5 +50,20 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="270dp"/>
 
+    <FrameLayout
+        android:id="@+id/return_button"
+        android:layout_width="286dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/button_shape"
+        android:layout_marginBottom="64dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="トップに戻る"
+            android:textSize="40sp"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
 </FrameLayout>
