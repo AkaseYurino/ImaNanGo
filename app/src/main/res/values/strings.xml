@@ -4,4 +4,6 @@
     <string name="normal">ふつうのお米</string>
     <string name="musenmai">無洗米</string>
     <string name="genmai">玄米</string>
+    <string name="last_rice_text">%.1f合炊くのに</string>
+    <string name= "water_text">%dmlデス!!</string>
 </resources>
